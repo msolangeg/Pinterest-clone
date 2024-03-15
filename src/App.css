@@ -1,0 +1,60 @@
+.container {
+  max-width: 1300px;
+  margin:0px auto;
+}
+
+header {
+  margin-bottom:10px;
+  padding: 5px 0;
+}
+
+header ul{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding:0;
+}
+
+header ul li {
+  flex-grow:2;
+  list-style:none;
+  text-align: center;
+}
+
+header ul li input{
+  border:none;
+  border-radius: 20px;
+  background-color: rgb(214, 214, 214);
+}
+
+
+/* contenten mazonry */
+.masonry img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.masonry .item p{
+  margin-bottom: 3px;
+  margin-top: 2px;
+  font-weight: 500;
+  font-size: 14px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: pre-wrap;
+}
+
+.masonry .item img.user {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.masonry .item div span {
+  color: #111111;
+}
