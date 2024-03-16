@@ -9,7 +9,8 @@ import { useBookStore } from "./store/bookStore";
 import "./App.css";
 
 const api = createApi({
-  accessKey: "Vmgrq301WP1DGRi03wXnnfPSAS56P0I9BSpu8YXo5dw",
+  // accessKey: import.meta.env.VITE_ACCESS_KEY,
+  accessKey: "Vmgrq301WP1DGRi03wXnnfPSAS56P0I9BSpu8YXo5dw"
 });
 
 function App() {
@@ -34,9 +35,9 @@ function App() {
 
   const moreData = () => {
     index.current = index.current + 1
-    if(index.current === 3) {  //borrar 
-      setHasMore(false)
-    }
+    // if(index.current === 3) {  //para limitar la carga
+    //   setHasMore(false)
+    // }
 
     api.search
       .getPhotos({ query: val, perPage: 20, page: index.current })
@@ -53,7 +54,7 @@ function App() {
       <Header />
       <InfiniteScroll
         dataLength={data.length}
-        hasMore={hasMore} //true
+        hasMore= 'true' //{hasMore}
         loadMore={moreData}
         loader={
           <div className="loader" key={0}>
@@ -61,7 +62,10 @@ function App() {
           </div>
         }
       >
-        <Masonry columns={4} spacing={2} className="masonry">
+        <Masonry 
+        columns={{ xs: 2, sm: 3, md:5 }} 
+        spacing={{ xs: 1, sm: 2, md:3 }} 
+        className="masonry">
           {data.map((item) => (
             <Cards key={item.id} item={item} />
           ))}
